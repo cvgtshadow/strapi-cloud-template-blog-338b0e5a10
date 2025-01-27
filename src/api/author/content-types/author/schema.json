@@ -24,11 +24,11 @@
     "email": {
       "type": "string"
     },
-    "articles": {
+    "blogs": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "author"
+      "relation": "manyToMany",
+      "target": "api::blog.blog",
+      "mappedBy": "authors"
     }
   }
 }
