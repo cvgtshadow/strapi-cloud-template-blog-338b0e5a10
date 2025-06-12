@@ -10,26 +10,40 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "description": {
       "type": "text",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "slug": {
       "type": "uid",
-      "required": true,
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "topics": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::topic.topic",
-      "mappedBy": "topics"
+      "inversedBy": "blogs"
     },
     "authors": {
       "type": "relation",
@@ -39,13 +53,31 @@
     },
     "blocks": {
       "type": "dynamiczone",
-      "components": ["shared.rich-text", "shared.media"]
+      "components": [
+        "shared.rich-text",
+        "shared.media"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "tableOfContents": {
-      "type": "json"
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "publishedDate": {
-      "type": "datetime"
+      "type": "datetime",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

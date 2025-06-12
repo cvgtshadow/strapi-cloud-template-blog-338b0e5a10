@@ -4,13 +4,11 @@
   "info": {
     "singularName": "topic",
     "pluralName": "topics",
-    "displayName": "Hashpower Blog Topic",
-    "description": ""
+    "displayName": "Hashpower Blog Topic"
   },
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {},
   "attributes": {
     "name": {
       "type": "string",
@@ -25,7 +23,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::blog.blog",
-      "inversedBy": "topics"
+      "mappedBy": "topics"
     }
   }
 }
