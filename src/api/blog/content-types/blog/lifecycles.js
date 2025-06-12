@@ -17,17 +17,21 @@ module.exports = {
   },
   async afterCreate(event) {
     const { result } = event;
+    const locale = result.locale;
+
     if (result.blocks) {
       const updatedToc = generateTableOfContents(result.blocks);
       await strapi.entityService.update("api::blog.blog", result.id, {
         data: {
           tableOfContents: updatedToc,
         },
+        locale
       });
     }
   },
   async beforeUpdate(event) {
     const { data, where } = event.params;
+    const locale = data.locale;
     console.log({ data });
     if (data.publishedAt && !data.publishedDate) {
       data.publishedDate = new Date().toISOString();
@@ -48,6 +52,7 @@ module.exports = {
           populate: {
             blocks: true,
           },
+          locale,
         }
       );
       data.tableOfContents = generateTableOfContents(blog.blocks);
